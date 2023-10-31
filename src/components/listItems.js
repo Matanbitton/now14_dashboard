@@ -20,9 +20,8 @@ export const mainListItems = (
 		</ListItemButton>
 		<ListItemButton>
 			<ListItemIcon>
-				<ShoppingCartIcon />
+				<AssignmentIcon />
 			</ListItemIcon>
-
 			<ListItemText primary="טבלת נתונים" />
 		</ListItemButton>
 	</React.Fragment>

@@ -6,24 +6,9 @@ import TableCell from "@mui/material/TableCell";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Title from "./Title";
+import { Mode } from "@mui/icons-material";
 
-// Generate Order Data
-function createData(id, date, name, headline, numberOfViews) {
-	return { id, date, name, headline, numberOfViews };
-}
-
-const rows = [
-	createData(0, "2000000", "8", "עזה הושמדה ברוך השם", "איציק"),
-	createData(0, "2000000", "8 שעות", "עזה הושמדה ברוך השם", "איציק"),
-	createData(0, "2000000", "8 שעות", "עזה הושמדה ברוך השם", "איציק"),
-	createData(0, "2000000", "8 שעות", "עזה הושמדה ברוך השם", "איציק"),
-];
-
-function preventDefault(event) {
-	event.preventDefault();
-}
-
-export default function Orders() {
+export default function Orders({ dataAuthors, authors }) {
 	return (
 		<React.Fragment>
 			<Title align="right" sx={{ fontWeight: "bold" }}>
@@ -47,13 +32,19 @@ export default function Orders() {
 					</TableRow>
 				</TableHead>
 				<TableBody>
-					{rows.map((row) => (
+					{dataAuthors.map((row) => (
 						<TableRow key={row.id}>
-							<TableCell align="right">{row.date}</TableCell>
-							<TableCell align="right">{row.name}</TableCell>
-							<TableCell align="right">{row.headline}</TableCell>
+							<TableCell align="right">{row.views}</TableCell>
 							<TableCell align="right">
-								{row.numberOfViews}
+								{row.time_string}
+							</TableCell>
+							<TableCell align="right">{row.title}</TableCell>
+							<TableCell align="right">
+								{authors.map((author) =>
+									row.author_id == author.id
+										? author.display_name
+										: ""
+								)}
 							</TableCell>
 						</TableRow>
 					))}

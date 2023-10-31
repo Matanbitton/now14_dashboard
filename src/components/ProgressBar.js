@@ -8,7 +8,11 @@ function ProgressBar({ currentCount, goal }) {
 	return (
 		<Box sx={{ display: "flex", alignItems: "center" }}>
 			<Box sx={{ width: "100%", mr: 1 }}>
-				<LinearProgress variant="determinate" value={percentage} />
+				<LinearProgress
+					variant="determinate"
+					value={percentage}
+					sx={{ height: "10px" }}
+				/>
 			</Box>
 			<Box sx={{ minWidth: 35 }}>{`${Math.round(percentage)}%`}</Box>
 		</Box>
@@ -25,8 +29,11 @@ export default function LinearWithValueLabel() {
 
 	return (
 		<div>
-			<button onClick={increaseCount}>Add Article</button>
+			<p style={{ padding: "none", margin: "none" }}>
+				הושג {articleCount} מתוך {goal}
+			</p>
 			<ProgressBar currentCount={articleCount} goal={goal} />
+			<button onClick={increaseCount}>Add Article</button>
 		</div>
 	);
 }

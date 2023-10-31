@@ -8,7 +8,12 @@ function preventDefault(event) {
 	event.preventDefault();
 }
 
-export default function Deposits() {
+export default function Summary({ summary }) {
+	const [views, articles, pushNotifications] = [
+		summary.views,
+		summary.push_notifications,
+		summary.articles,
+	];
 	const today = new Date();
 
 	// Extract the date, month, and year from the Date object
@@ -73,7 +78,7 @@ export default function Deposits() {
 						variant="h3"
 						sx={{ fontWeight: "bold" }}
 					>
-						95,000
+						{views}
 					</Typography>
 					<Typography
 						component="p"

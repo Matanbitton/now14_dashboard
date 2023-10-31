@@ -25,7 +25,7 @@ export default function MostPublished() {
 				align="right"
 				sx={{ fontWeight: "bold", justifySelf: "right" }}
 			>
-				מי פרסם הכי הרבה?
+				?מי פרסם הכי הרבה
 			</Title>
 			<Table size="medium">
 				<TableHead>
