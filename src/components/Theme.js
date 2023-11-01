@@ -87,7 +87,13 @@ const Drawer = styled(MuiDrawer, {
 // TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
 
-export default function Theme({ dataAuthors, authors, summary }) {
+export default function Theme({
+	dataAuthors,
+	authors,
+	summary,
+	authorsDataSummary,
+}) {
+	console.log(authorsDataSummary);
 	const [open, setOpen] = React.useState(true);
 	const toggleDrawer = () => {
 		setOpen(!open);
@@ -163,49 +169,22 @@ export default function Theme({ dataAuthors, authors, summary }) {
 				>
 					<Toolbar />
 					<Container maxWidth="lg" sx={{ mt: 6, mb: 4 }}>
-						<Grid item xs={6}>
-							<Paper
-								sx={{
-									p: 2,
-									display: "flex",
-									flexDirection: "column",
-									marginBottom: "20px",
+						<div
+							style={{
+								display: "grid",
+								gridTemplateColumns: "1fr 1fr",
+								columnGap: "20px",
+							}}
+						>
+							{/* <Grid item xs={6} md={6} lg={6} order={4}> */}
+
+							{/* </Grid> */}
+							<div
+								style={{
+									display: "grid",
+									gridArea: "1 / 2 / 4 / 2",
 								}}
 							>
-								<ProgressBar />
-							</Paper>
-						</Grid>
-
-						<Grid container spacing={4}>
-							{/* Chart */}
-							{/* <Grid item xs={12} md={12} lg={12}>
-								<Paper
-									sx={{
-										p: 2,
-										display: "flex",
-										flexDirection: "column",
-										height: 240,
-									}}
-								>
-									<Chart />
-								</Paper>
-							</Grid> */}
-							{/* Recent Deposits */}
-							<Grid item xs={12} md={4} lg={3}>
-								<Paper
-									sx={{
-										p: 2,
-										display: "flex",
-										flexDirection: "column",
-										height: 240,
-									}}
-								>
-									<Summary summary={summary} />
-								</Paper>
-							</Grid>
-
-							{/* Recent Orders */}
-							<Grid item xs={6}>
 								<Paper
 									sx={{
 										p: 2,
@@ -218,19 +197,68 @@ export default function Theme({ dataAuthors, authors, summary }) {
 										authors={authors}
 									/>
 								</Paper>
-							</Grid>
-							<Grid item xs={6}>
-								<Paper
-									sx={{
-										p: 2,
-										display: "flex",
-										flexDirection: "column",
+							</div>
+							<div
+								style={{
+									display: "flex",
+									flexDirection: "column",
+									gap: "25px",
+								}}
+							>
+								<div
+									style={{
+										display: "grid",
+										gridArea: "1 / 2 / 2 / 1",
 									}}
 								>
-									<MostPublished />
-								</Paper>
-							</Grid>
-						</Grid>
+									<Paper
+										sx={{
+											p: 2,
+											display: "flex",
+											flexDirection: "column",
+											height: 240,
+										}}
+									>
+										<Summary summary={summary} />
+									</Paper>
+								</div>
+								<div
+									style={{
+										display: "grid",
+										gridArea: "2 / 1 / 3 / 2",
+									}}
+								>
+									<Paper
+										sx={{
+											p: 2,
+											display: "flex",
+											flexDirection: "column",
+										}}
+									>
+										<MostPublished
+											authorsData={authorsDataSummary}
+											authors={authors}
+										/>
+									</Paper>
+								</div>
+								<div
+									style={{
+										display: "grid",
+										gridArea: "3 / 1 / 3 / 2",
+									}}
+								>
+									<Paper
+										sx={{
+											p: 2,
+											display: "flex",
+											flexDirection: "column",
+										}}
+									>
+										<ProgressBar summary={summary} />
+									</Paper>
+								</div>
+							</div>
+						</div>
 						<Copyright sx={{ pt: 4 }} />
 					</Container>
 				</Box>

@@ -9,11 +9,7 @@ function preventDefault(event) {
 }
 
 export default function Summary({ summary }) {
-	const [views, articles, pushNotifications] = [
-		summary.views,
-		summary.push_notifications,
-		summary.articles,
-	];
+	const { views, articles, pushNotifications } = summary;
 	const today = new Date();
 
 	// Extract the date, month, and year from the Date object
@@ -21,74 +17,67 @@ export default function Summary({ summary }) {
 	const month = today.getMonth() + 1; // Month is 0-based, so add 1
 	const year = today.getFullYear();
 
-	// You can format the date as needed, for example, in a MM/DD/YYYY format
 	const formattedDate = `${day}/${month}/${year}`;
 	return (
-		<React.Fragment>
+		<div
+			style={{
+				display: "flex",
+				flexDirection: "column",
+				alignItems: "center",
+				justifyContent: "center",
+				height: "100vh",
+			}}
+		>
+			<Typography
+				component="p"
+				variant="h5"
+				sx={{
+					fontWeight: "bold",
+					color: "gray",
+					display: "flex",
+					gap: "20px",
+					alignItems: "center",
+				}}
+			>
+				<div
+					style={{
+						height: "40px",
+						width: "40px",
+						backgroundColor: "rgb(240 119 127)",
+						borderRadius: "1em",
+						display: "flex",
+						justifyContent: "center",
+						alignItems: "center",
+					}}
+				>
+					<VisibilityIcon
+						sx={{
+							color: "white",
+							borderRadius: "2em",
+							fontSize: "20px",
+						}}
+					/>
+				</div>
+				צפיות
+			</Typography>
 			<div
 				style={{
 					display: "flex",
 					flexDirection: "column",
 					alignItems: "center",
-					justifyContent: "center",
-					height: "100vh",
 				}}
 			>
 				<Typography
 					component="p"
-					variant="h5"
-					sx={{
-						fontWeight: "bold",
-						color: "gray",
-						display: "flex",
-						gap: "20px",
-						alignItems: "center",
-					}}
+					variant="h3"
+					sx={{ fontWeight: "bold" }}
 				>
-					<div
-						style={{
-							height: "40px",
-							width: "40px",
-							backgroundColor: "rgb(240 119 127)",
-							borderRadius: "1em",
-							display: "flex",
-							justifyContent: "center",
-							alignItems: "center",
-						}}
-					>
-						<VisibilityIcon
-							sx={{
-								color: "white",
-								borderRadius: "2em",
-								fontSize: "20px",
-							}}
-						/>
-					</div>
-					צפיות
+					{views}
 				</Typography>
-				<div
-					style={{
-						display: "flex",
-						flexDirection: "column",
-						alignItems: "center",
-					}}
-				>
-					<Typography
-						component="p"
-						variant="h3"
-						sx={{ fontWeight: "bold" }}
-					>
-						{views}
-					</Typography>
-					<Typography
-						component="p"
-						variant="h6"
-						color="text.secondary"
-					>
-						{formattedDate}
-					</Typography>
-				</div>
+				<Typography component="p" variant="h6" color="text.secondary">
+					{formattedDate}
+				</Typography>
 			</div>
-		</React.Fragment>
+		</div>
 	);
 }

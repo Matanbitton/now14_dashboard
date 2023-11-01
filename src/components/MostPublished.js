@@ -7,18 +7,13 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Title from "./Title";
 
-// Generate Order Data
-function createData(id, author, articleCount) {
-	return { id, author, articleCount };
-}
+export default function MostPublished({ authorsData, authors }) {
+	console.log(authorsData);
+	const arrayFromData = authorsData.sort(
+		(a, b) => b.articles_sum - a.articles_sum
+	);
+	const displayData = arrayFromData.slice(0, 3);
 
-const rows = [createData(0, "איציק", "16"), createData(0, "מילן", "14")];
-
-function preventDefault(event) {
-	event.preventDefault();
-}
-
-export default function MostPublished() {
 	return (
 		<React.Fragment>
 			<Title
@@ -39,12 +34,18 @@ export default function MostPublished() {
 					</TableRow>
 				</TableHead>
 				<TableBody>
-					{rows.map((row) => (
+					{displayData.map((row) => (
 						<TableRow key={row.id}>
 							<TableCell align="right">
-								{row.articleCount}
+								{row.articles_sum}
 							</TableCell>
-							<TableCell align="right">{row.author}</TableCell>
+							<TableCell align="right">
+								{authors.map((author) =>
+									row.author_id == author.id
+										? author.display_name
+										: ""
+								)}
+							</TableCell>
 						</TableRow>
 					))}
 				</TableBody>
