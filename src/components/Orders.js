@@ -118,6 +118,8 @@ export default function Orders({ dataAuthors, authors }) {
 											padding: "none",
 											borderColor:
 												"rgba(255, 255, 255, 0.2)",
+											fontWeight: "700",
+											fontSize: "20px",
 										}}
 										align="right"
 									>
@@ -130,6 +132,7 @@ export default function Orders({ dataAuthors, authors }) {
 											padding: "none",
 											borderColor:
 												"rgba(255, 255, 255, 0.2)",
+											fontWeight: "700",
 										}}
 										align="right"
 									>
@@ -142,6 +145,7 @@ export default function Orders({ dataAuthors, authors }) {
 											padding: "none",
 											borderColor:
 												"rgba(255, 255, 255, 0.2)",
+											fontWeight: "700",
 										}}
 										align="right"
 									>
@@ -154,6 +158,7 @@ export default function Orders({ dataAuthors, authors }) {
 											padding: "none",
 											borderColor:
 												"rgba(255, 255, 255, 0.2)",
+											fontWeight: "700",
 										}}
 										align="right"
 									>
