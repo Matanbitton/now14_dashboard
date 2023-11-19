@@ -6,6 +6,8 @@ export default function Dashboard() {
 	const [authors, setAuthors] = useState([]);
 	const [summary, setSummary] = useState([]);
 	const [authorsDataSummary, setAuthorsData] = useState([]);
+	const [comments, setComments] = useState([]);
+	const [mostActive, setMostActive] = useState([]);
 
 	useEffect(() => {
 		async function getData(url) {
@@ -42,6 +44,14 @@ export default function Dashboard() {
 					"https://now14.co.il/wp-json/dashboard/v1/summary/authors"
 				);
 				setAuthorsData(authorsSummaryData);
+				const commentsData = await getData(
+					"https://now14.co.il/wp-json/dashboard/v1/most_comments/"
+				);
+				setComments(commentsData);
+				const mostActiveData = await getData(
+					"https://now14.co.il/wp-json/dashboard/v1/most_active_authors"
+				);
+				setMostActive(mostActiveData);
 			} catch (error) {
 				console.error(error);
 			}
@@ -49,7 +59,7 @@ export default function Dashboard() {
 
 		fetchData();
 
-		const intervalId = setInterval(fetchData, 15000);
+		const intervalId = setInterval(fetchData, 36000000); //one hour
 
 		return () => {
 			clearInterval(intervalId);
@@ -62,6 +72,8 @@ export default function Dashboard() {
 			authors={authors}
 			summary={summary}
 			authorsDataSummary={authorsDataSummary}
+			comments={comments}
+			mostActiveAuthors={mostActive}
 		/>
 	);
 }

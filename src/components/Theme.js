@@ -23,11 +23,16 @@ import Summary from "./CurrentViews";
 import Orders from "./Orders";
 import Clock from "./Clock";
 import MostPublished from "./MostPublished";
+import MostPublishedPerson from "./MostPublishedPerson";
 import ProgressBar from "./ProgressBar";
+import eyeIcon from "../Images/now14logo.svg";
+import Comments from "./Comments";
+import MostPublishedPersonMonth from "./MostPublishedPersonMonth";
+import MostPublishedPersonWeek from "./MostPublishedPersonWeek";
 
 function Copyright(props) {
 	return (
-		<Typography variant="body2" color="red" align="center" {...props}>
+		<Typography variant="body2" color="#141533" align="center" {...props}>
 			{"Copyright © "}
 			<Link color="inherit" href="https://now14.co.il/">
 				עכשיו 14
@@ -38,52 +43,6 @@ function Copyright(props) {
 	);
 }
 
-const drawerWidth = 240;
-
-const AppBar = styled(MuiAppBar, {
-	shouldForwardProp: (prop) => prop !== "open",
-})(({ theme, open }) => ({
-	zIndex: theme.zIndex.drawer + 1,
-	transition: theme.transitions.create(["width", "margin"], {
-		easing: theme.transitions.easing.sharp,
-		duration: theme.transitions.duration.leavingScreen,
-	}),
-	...(open && {
-		marginLeft: drawerWidth,
-		width: `calc(100% - ${drawerWidth}px)`,
-		transition: theme.transitions.create(["width", "margin"], {
-			easing: theme.transitions.easing.sharp,
-			duration: theme.transitions.duration.enteringScreen,
-		}),
-	}),
-}));
-
-const Drawer = styled(MuiDrawer, {
-	shouldForwardProp: (prop) => prop !== "open",
-})(({ theme, open }) => ({
-	"& .MuiDrawer-paper": {
-		position: "relative",
-		whiteSpace: "nowrap",
-		width: drawerWidth,
-		transition: theme.transitions.create("width", {
-			easing: theme.transitions.easing.sharp,
-			duration: theme.transitions.duration.enteringScreen,
-		}),
-		boxSizing: "border-box",
-		...(!open && {
-			overflowX: "hidden",
-			transition: theme.transitions.create("width", {
-				easing: theme.transitions.easing.sharp,
-				duration: theme.transitions.duration.leavingScreen,
-			}),
-			width: theme.spacing(7),
-			[theme.breakpoints.up("sm")]: {
-				width: theme.spacing(9),
-			},
-		}),
-	},
-}));
-
 // TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
 
@@ -92,6 +51,8 @@ export default function Theme({
 	authors,
 	summary,
 	authorsDataSummary,
+	comments,
+	mostActiveAuthors,
 }) {
 	console.log(authorsDataSummary);
 	const [open, setOpen] = React.useState(true);
@@ -101,40 +62,8 @@ export default function Theme({
 
 	return (
 		<ThemeProvider theme={defaultTheme}>
-			<Box sx={{ display: "flex" }}>
-				<CssBaseline />
-				<AppBar position="absolute" open={open}>
-					<Toolbar
-						sx={{
-							pr: "24px", // keep right padding when drawer closed
-							backgroundColor: "#E30613",
-						}}
-					>
-						<IconButton
-							edge="start"
-							color="inherit"
-							aria-label="open drawer"
-							onClick={toggleDrawer}
-							sx={{
-								marginRight: "36px",
-								...(open && { display: "none" }),
-							}}
-						>
-							<MenuIcon />
-						</IconButton>
-						<Typography
-							component="h1"
-							variant="h6"
-							color="inherit"
-							noWrap
-							sx={{ flexGrow: 1, marginBottom: "0px" }}
-						>
-							דאשבורד ערוץ 14
-							<Clock />
-						</Typography>
-					</Toolbar>
-				</AppBar>
-				<Drawer variant="permanent" open={open}>
+			<Box>
+				{/* <Drawer variant="permanent" open={open}>
 					<Toolbar
 						sx={{
 							display: "flex",
@@ -154,26 +83,41 @@ export default function Theme({
 						<Divider sx={{ my: 1 }} />
 						{secondaryListItems}
 					</List>
-				</Drawer>
+				</Drawer> */}
 				<Box
 					component="main"
 					sx={{
-						backgroundColor: (theme) =>
-							theme.palette.mode === "light"
-								? theme.palette.grey[100]
-								: theme.palette.grey[900],
+						backgroundColor: "#141533",
 						flexGrow: 1,
 						height: "100vh",
 						overflow: "auto",
+						width: "100vw",
 					}}
 				>
 					<Toolbar />
-					<Container maxWidth="lg" sx={{ mt: 6, mb: 4 }}>
+
+					<Container
+						style={{ maxWidth: "1450px", position: "relative" }}
+						sx={{ mt: 3, mb: 4 }}
+					>
+						<div className="flex justify-center absolute top-[-90px] right-[-30px] items-center flex-row-reverse gap-5 place-content-end">
+							<h2 className="text-white text-6xl font-black mt-4  font-sans">
+								הכתבים של{" "}
+							</h2>
+							<img src={eyeIcon}></img>
+						</div>
+						<div className="absolute left-5 top-[-70px] text-white text-4xl font-sans font-black mt-4 ">
+							<Clock />
+						</div>
+
 						<div
 							style={{
 								display: "grid",
-								gridTemplateColumns: "1fr 1fr",
-								columnGap: "20px",
+								gridTemplateColumns: "334px 362px 742px",
+								gridTemplateRows: "0.1fr 207px 138px 0.5fr 1fr",
+								columnGap: "10px",
+								rowGap: "10px",
+								width: "100vw",
 							}}
 						>
 							{/* <Grid item xs={6} md={6} lg={6} order={4}> */}
@@ -182,14 +126,36 @@ export default function Theme({
 							<div
 								style={{
 									display: "grid",
-									gridArea: "1 / 2 / 4 / 2",
+									gridArea: "1 / 1 / 2 / 3",
 								}}
 							>
 								<Paper
 									sx={{
+										backgroundColor:
+											"rgba(255, 255, 255, 0.18)",
+										p: 1,
+										display: "flex",
+										flexDirection: "column",
+										borderRadius: "7px",
+									}}
+								>
+									<ProgressBar summary={summary} />
+								</Paper>
+							</div>
+							<div
+								style={{
+									gridArea: "1 / 3 / 3 / 4",
+								}}
+							>
+								<Paper
+									sx={{
+										backgroundColor:
+											"rgba(255, 255, 255, 0.18)",
 										p: 2,
 										display: "flex",
 										flexDirection: "column",
+										height: "auto",
+										borderRadius: "7px",
 									}}
 								>
 									<Orders
@@ -202,37 +168,36 @@ export default function Theme({
 								style={{
 									display: "flex",
 									flexDirection: "column",
-									gap: "25px",
+									gap: "10px",
+									gridArea: "2 / 2 / 3 / 3",
 								}}
 							>
-								<div
-									style={{
-										display: "grid",
-										gridArea: "1 / 2 / 2 / 1",
-									}}
-								>
+								<div>
 									<Paper
 										sx={{
-											p: 2,
+											backgroundColor:
+												"rgba(255, 255, 255, 0.18)",
+
+											p: 1,
 											display: "flex",
 											flexDirection: "column",
-											height: 240,
+											height: "207px",
+											borderRadius: "7px",
 										}}
 									>
 										<Summary summary={summary} />
 									</Paper>
 								</div>
-								<div
-									style={{
-										display: "grid",
-										gridArea: "2 / 1 / 3 / 2",
-									}}
-								>
+
+								<div>
 									<Paper
 										sx={{
-											p: 2,
+											bgcolor:
+												"rgba(255, 255, 255, 0.18)",
+											p: 1,
 											display: "flex",
 											flexDirection: "column",
+											borderRadius: "7px",
 										}}
 									>
 										<MostPublished
@@ -241,20 +206,105 @@ export default function Theme({
 										/>
 									</Paper>
 								</div>
-								<div
-									style={{
-										display: "grid",
-										gridArea: "3 / 1 / 3 / 2",
-									}}
-								>
+							</div>
+							<div style={{ gridArea: "4 / 1 / 4 / 2 " }}>
+								<div>
 									<Paper
 										sx={{
+											backgroundColor:
+												"rgba(255, 255, 255, 0.18)",
+
+											p: 1,
+											display: "flex",
+											flexDirection: "column",
+											borderRadius: "7px",
+										}}
+									>
+										<Comments
+											comments={comments}
+											authors={authors}
+										/>
+									</Paper>
+								</div>
+							</div>
+							<div
+								style={{
+									display: "flex",
+									flexDirection: "column",
+									gap: "20px",
+									gridArea: "2 / 1 / 2 / 2",
+								}}
+							>
+								<div>
+									<Paper
+										sx={{
+											bgcolor:
+												"rgba(255, 255, 255, 0.18)",
+											p: 1,
+											display: "flex",
+											flexDirection: "column",
+											alignItems: "center",
+											borderRadius: "7px",
+											height: "207px",
+										}}
+									>
+										<MostPublishedPerson
+											authorsData={authorsDataSummary}
+											authors={authors}
+										/>
+									</Paper>
+								</div>
+							</div>
+							<div
+								style={{
+									display: "flex",
+									flexDirection: "row",
+									gap: "10px",
+									gridArea: "3 / 1 / 3 / 2",
+								}}
+							>
+								<div>
+									<Paper
+										sx={{
+											bgcolor:
+												"rgba(255, 255, 255, 0.18)",
 											p: 2,
 											display: "flex",
 											flexDirection: "column",
+											alignItems: "center",
+											borderRadius: "7px",
+											height: " 138px",
+											width: "162px",
 										}}
 									>
-										<ProgressBar summary={summary} />
+										<MostPublishedPersonMonth
+											mostActiveAuthors={
+												mostActiveAuthors
+											}
+											authors={authors}
+										/>
+									</Paper>
+								</div>
+								<div>
+									<Paper
+										sx={{
+											bgcolor:
+												"rgba(255, 255, 255, 0.18)",
+											p: 2,
+											display: "flex",
+											flexDirection: "column",
+											alignItems: "center",
+											borderRadius: "7px",
+											height: " 138px",
+											width: "162px",
+										}}
+									>
+										<MostPublishedPersonWeek
+											mostActiveAuthors={
+												mostActiveAuthors
+											}
+											authors={authors}
+										/>
 									</Paper>
 								</div>
 							</div>

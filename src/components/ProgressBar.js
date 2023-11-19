@@ -10,7 +10,7 @@ export default function ProgressBar({ summary, style }) {
 	if (style == "target") {
 		return (
 			<div style={{ display: "flex", flexDirection: "column" }}>
-				<h1>מטרת כתבות יומית</h1>
+				<h1>היעד שלנו להיום!</h1>
 				<p style={{ padding: "none", margin: "none" }}>
 					הושג {currentCount} מתוך {goal}
 				</p>
@@ -19,7 +19,9 @@ export default function ProgressBar({ summary, style }) {
 						<LinearProgress
 							variant="determinate"
 							value={percentage}
-							sx={{ height: "10px" }}
+							sx={{
+								height: "10px",
+							}}
 						/>
 					</Box>
 
@@ -31,28 +33,49 @@ export default function ProgressBar({ summary, style }) {
 		);
 	} else {
 		return (
-			<div style={{ display: "flex", flexDirection: "column" }}>
-				<Title
-					align="right"
-					sx={{ fontWeight: "bold", justifySelf: "right" }}
-				>
-					מטרת כתבות יומית
-				</Title>
-				<p style={{ padding: "none", margin: "none" }}>
-					הושג {currentCount} מתוך {goal}
-				</p>
+			<div
+				style={{
+					display: "flex",
+					flexDirection: "column",
+					gap: "10px",
+				}}
+			>
+				<div className="flex flex-row-reverse justify-evenly items-center">
+					<h1 className="text-2xl text-white font-bold">
+						!היעד שלנו להיום
+					</h1>
+					<div className="flex gap-2 flex-row-reverse">
+						<p className="p-0 m-0 text-2xl text-white">פורסמו</p>
+						<p className="p-0 m-0 text-2xl text-[#FBBF00]">
+							{currentCount}
+						</p>
+						<p className="p-0 m-0 text-2xl text-white">מתוך</p>
+						<p className="p-0 m-0 text-2xl text-[#E30613]">
+							{goal}
+						</p>
+						<p className="p-0 m-0 text-2xl text-white">כתבות</p>
+					</div>
+				</div>
+
 				<Box sx={{ display: "flex", alignItems: "center" }}>
-					<Box sx={{ width: "100%", mr: 1 }}>
+					<Box
+						sx={{
+							width: "100%",
+							mr: 1,
+						}}
+					>
 						<LinearProgress
 							variant="determinate"
 							value={percentage}
-							sx={{ height: "10px" }}
+							sx={{
+								height: "10px",
+								backgroundColor: "rgba(217, 217, 217, 0.30)", // Set the background color
+								"& .MuiLinearProgress-bar": {
+									backgroundColor: "#E70333;", // Set the progress bar color
+								},
+							}}
 						/>
 					</Box>
-
-					<Box sx={{ minWidth: 35 }}>{`${Math.round(
-						percentage
-					)}%`}</Box>
 				</Box>
 			</div>
 		);

@@ -26,8 +26,9 @@ function Clock() {
 	return (
 		<div style={{ display: "flex", justifyContent: "center" }}>
 			<h1 style={{ margin: "0" }}>
-				{hours}:{minutes < 10 ? `0${minutes}` : minutes}:
-				{seconds < 10 ? `0${seconds}` : seconds} | {formattedDate}
+				{formattedDate} | {hours}:
+				{minutes < 10 ? `0${minutes}` : minutes}:
+				{seconds < 10 ? `0${seconds}` : seconds}
 			</h1>
 		</div>
 	);

@@ -3,6 +3,8 @@ import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
 import Title from "./Title";
 import VisibilityIcon from "@mui/icons-material/Visibility";
+import { Image } from "@mui/icons-material";
+import eyeIcon from "../Images/eyeIcon.svg";
 
 function preventDefault(event) {
 	event.preventDefault();
@@ -21,63 +23,56 @@ export default function Summary({ summary }) {
 	return (
 		<div
 			style={{
-				display: "flex",
-				flexDirection: "column",
-				alignItems: "center",
+				display: "grid",
+				gridTemplateColumns: "1fr 1fr",
 				justifyContent: "center",
+				alignItems: "center",
 				height: "100vh",
 			}}
 		>
+			<div
+				style={{
+					color: "white",
+					display: "flex",
+					flexDirection: "column",
+					justifyContent: "space-between",
+					gap: "20px",
+				}}
+			>
+				<Typography
+					className="text-[#00D3E0] font-sans"
+					component="p"
+					variant="h3"
+					sx={{
+						fontWeight: "900",
+					}}
+				>
+					{views}
+				</Typography>
+				<Typography
+					component="p"
+					variant="h6"
+					className="tracking-wide	"
+				>
+					{formattedDate}
+				</Typography>
+			</div>
 			<Typography
 				component="p"
 				variant="h5"
 				sx={{
+					color: "white",
 					fontWeight: "bold",
 					color: "gray",
 					display: "flex",
+					flexDirection: "column",
 					gap: "20px",
 					alignItems: "center",
 				}}
 			>
-				<div
-					style={{
-						height: "40px",
-						width: "40px",
-						backgroundColor: "rgb(240 119 127)",
-						borderRadius: "1em",
-						display: "flex",
-						justifyContent: "center",
-						alignItems: "center",
-					}}
-				>
-					<VisibilityIcon
-						sx={{
-							color: "white",
-							borderRadius: "2em",
-							fontSize: "20px",
-						}}
-					/>
-				</div>
-				צפיות
+				<img src={eyeIcon} width={"117"}></img>
+				<h1 className=" font-bold text-white">צפיות</h1>
 			</Typography>
-			<div
-				style={{
-					display: "flex",
-					flexDirection: "column",
-					alignItems: "center",
-				}}
-			>
-				<Typography
-					component="p"
-					variant="h3"
-					sx={{ fontWeight: "bold" }}
-				>
-					{views}
-				</Typography>
-				<Typography component="p" variant="h6" color="text.secondary">
-					{formattedDate}
-				</Typography>
-			</div>
 		</div>
 	);
 }
