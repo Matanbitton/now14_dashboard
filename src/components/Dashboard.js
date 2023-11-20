@@ -12,7 +12,7 @@ export default function Dashboard() {
 	useEffect(() => {
 		async function getData(url) {
 			try {
-				const response = await fetch(url);
+				const response = await fetch(`${url}?t=${Date.now()}`);
 				if (response.ok) {
 					const data = await response.json();
 					return data;
