@@ -9,7 +9,9 @@ export default function MostPublished({ authorsData, authors }) {
 
 	return (
 		<React.Fragment>
-			<h2 className="text-2xl text-white font-black">?כמה פרסמנו היום</h2>
+			<h2 className="text-2xl text-white font-black ">
+				?כמה פרסמנו היום
+			</h2>
 
 			<div className="">
 				<div className="relative overflow-hidden w-[50px] mb-3"></div>

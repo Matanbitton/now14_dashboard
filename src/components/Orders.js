@@ -24,7 +24,7 @@ export default function Orders({ dataAuthors, authors }) {
 	let color = "";
 	return (
 		<div className="h-auto">
-			<h1 className="text-4xl font-bold text-white text-right grid col-start-1 pb-4 font-sans">
+			<h1 className="text-4xl font-bold text-white text-right grid col-start-1 pb-4 ">
 				הכתבות הכי נצפות
 			</h1>
 			<Table size="small">

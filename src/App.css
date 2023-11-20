@@ -1,8 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+	font-family: "OpenSans";
+	src: url("./fonts/OpenSans-Bold.ttf"), url("./fonts/OpenSans-ExtraBold.ttf"),
+		url("./fonts/OpenSans-Light.ttf");
+}
+
+@font-face {
+	font-family: "Heebo";
+	src: url("./fonts/Heebo-Medium.ttf");
+}
+
 .App {
 	text-align: center;
+	font-family: "Heebo";
 }
 
 .App-logo {
