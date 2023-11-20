@@ -100,7 +100,7 @@ export default function Theme({
 						style={{ maxWidth: "1450px", position: "relative" }}
 						sx={{ mt: 3, mb: 4 }}
 					>
-						<div className="flex justify-center absolute top-[-90px] right-[-30px] items-center flex-row-reverse gap-5 place-content-end">
+						<div className="flex justify-center absolute top-[-90px] right-[-20px] items-center flex-row-reverse gap-5 place-content-end">
 							<h2 className="text-white text-6xl font-black mt-4  font-sans">
 								הכתבים של{" "}
 							</h2>
@@ -188,24 +188,22 @@ export default function Theme({
 										<Summary summary={summary} />
 									</Paper>
 								</div>
-
-								<div>
-									<Paper
-										sx={{
-											bgcolor:
-												"rgba(255, 255, 255, 0.18)",
-											p: 1,
-											display: "flex",
-											flexDirection: "column",
-											borderRadius: "7px",
-										}}
-									>
-										<MostPublished
-											authorsData={authorsDataSummary}
-											authors={authors}
-										/>
-									</Paper>
-								</div>
+							</div>
+							<div>
+								<Paper
+									sx={{
+										bgcolor: "rgba(255, 255, 255, 0.18)",
+										p: 1,
+										display: "flex",
+										flexDirection: "column",
+										borderRadius: "7px",
+									}}
+								>
+									<MostPublished
+										authorsData={authorsDataSummary}
+										authors={authors}
+									/>
+								</Paper>
 							</div>
 							<div style={{ gridArea: "4 / 1 / 4 / 2 " }}>
 								<div>
