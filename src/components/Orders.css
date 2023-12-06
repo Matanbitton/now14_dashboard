@@ -18,3 +18,7 @@
 .css-10dbhht-MuiTableCell-root {
 	padding: none !important;
 }
+
+* {
+	font-family: "Heebo";
+}

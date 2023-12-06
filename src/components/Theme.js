@@ -61,8 +61,8 @@ export default function Theme({
 	};
 
 	return (
-		<ThemeProvider theme={defaultTheme}>
-			<Box>
+		<div className="bg-[#141533]  w-screen flex justify-center">
+			<div className=" w-[90%]">
 				{/* <Drawer variant="permanent" open={open}>
 					<Toolbar
 						sx={{
@@ -84,40 +84,27 @@ export default function Theme({
 						{secondaryListItems}
 					</List>
 				</Drawer> */}
-				<Box
-					component="main"
-					sx={{
-						backgroundColor: "#141533",
-						flexGrow: 1,
-						height: "100vh",
-						overflow: "auto",
-						width: "100vw",
-					}}
-				>
-					<Toolbar />
-
-					<Container
-						style={{ maxWidth: "1450px", position: "relative" }}
-						sx={{ mt: 3, mb: 4 }}
-					>
-						<div className="flex justify-center absolute top-[-90px] right-[-20px] items-center flex-row-reverse gap-5 place-content-end">
-							<h2 className="text-white text-6xl font-black mt-4  font-sans">
+				<div className=" w-full flex-col justify-center items-center ">
+					<div className="flex w-full justify-between items-center flex-row-reverse ">
+						<div className="flex justify-center items-center flex-row-reverse gap-5 pb-2">
+							<h2 className="text-white text-6xl font-black mt-4  font-sans ">
 								הכתבים של{" "}
 							</h2>
 							<img src={eyeIcon}></img>
 						</div>
-						<div className="absolute left-5 top-[-70px] text-white text-4xl font-sans font-black mt-4 ">
+						<div className=" text-white text-4xl font-sans font-black mt-4 ">
 							<Clock />
 						</div>
+					</div>
 
+					<div className="relative ">
 						<div
 							style={{
 								display: "grid",
-								gridTemplateColumns: "334px 362px 742px",
+								gridTemplateColumns: "0.4fr 0.4fr 0.8fr",
 								gridTemplateRows: "0.1fr 207px 138px 0.5fr 1fr",
 								columnGap: "10px",
 								rowGap: "10px",
-								width: "100vw",
 							}}
 						>
 							{/* <Grid item xs={6} md={6} lg={6} order={4}> */}
@@ -188,22 +175,24 @@ export default function Theme({
 										<Summary summary={summary} />
 									</Paper>
 								</div>
-							</div>
-							<div>
-								<Paper
-									sx={{
-										bgcolor: "rgba(255, 255, 255, 0.18)",
-										p: 1,
-										display: "flex",
-										flexDirection: "column",
-										borderRadius: "7px",
-									}}
-								>
-									<MostPublished
-										authorsData={authorsDataSummary}
-										authors={authors}
-									/>
-								</Paper>
+
+								<div>
+									<Paper
+										sx={{
+											bgcolor:
+												"rgba(255, 255, 255, 0.18)",
+											p: 1,
+											display: "flex",
+											flexDirection: "column",
+											borderRadius: "7px",
+										}}
+									>
+										<MostPublished
+											authorsData={authorsDataSummary}
+											authors={authors}
+										/>
+									</Paper>
+								</div>
 							</div>
 							<div style={{ gridArea: "4 / 1 / 4 / 2 " }}>
 								<div>
@@ -233,7 +222,7 @@ export default function Theme({
 									gridArea: "2 / 1 / 2 / 2",
 								}}
 							>
-								<div>
+								<div className="w-full">
 									<Paper
 										sx={{
 											bgcolor:
@@ -254,6 +243,7 @@ export default function Theme({
 								</div>
 							</div>
 							<div
+								className="w-full"
 								style={{
 									display: "flex",
 									flexDirection: "row",
@@ -261,7 +251,7 @@ export default function Theme({
 									gridArea: "3 / 1 / 3 / 2",
 								}}
 							>
-								<div>
+								<div className="w-full">
 									<Paper
 										sx={{
 											bgcolor:
@@ -272,7 +262,6 @@ export default function Theme({
 											alignItems: "center",
 											borderRadius: "7px",
 											height: " 138px",
-											width: "162px",
 										}}
 									>
 										<MostPublishedPersonMonth
@@ -283,7 +272,7 @@ export default function Theme({
 										/>
 									</Paper>
 								</div>
-								<div>
+								<div className="w-full">
 									<Paper
 										sx={{
 											bgcolor:
@@ -294,7 +283,6 @@ export default function Theme({
 											alignItems: "center",
 											borderRadius: "7px",
 											height: " 138px",
-											width: "162px",
 										}}
 									>
 										<MostPublishedPersonWeek
@@ -307,10 +295,9 @@ export default function Theme({
 								</div>
 							</div>
 						</div>
-						<Copyright sx={{ pt: 4 }} />
-					</Container>
-				</Box>
-			</Box>
-		</ThemeProvider>
+					</div>
+				</div>
+			</div>
+		</div>
 	);
 }

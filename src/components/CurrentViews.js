@@ -30,49 +30,18 @@ export default function Summary({ summary }) {
 				height: "100vh",
 			}}
 		>
-			<div
-				style={{
-					color: "white",
-					display: "flex",
-					flexDirection: "column",
-					justifyContent: "space-between",
-					gap: "20px",
-				}}
-			>
-				<Typography
-					className="text-[#00D3E0] font-sans"
-					component="p"
-					variant="h3"
-					sx={{
-						fontWeight: "900",
-					}}
-				>
+			<div className="flex flex-col justify-center items-center gap-7 ">
+				<h2 className="text-[#00D3E0] font-sans font-black text-4xl">
 					{views}
-				</Typography>
-				<Typography
-					component="p"
-					variant="h6"
-					className="tracking-wide	"
-				>
+				</h2>
+				<h2 className="font-bold text-white text-lg mb-[-15px]">
 					{formattedDate}
-				</Typography>
+				</h2>
 			</div>
-			<Typography
-				component="p"
-				variant="h5"
-				sx={{
-					color: "white",
-					fontWeight: "bold",
-					color: "gray",
-					display: "flex",
-					flexDirection: "column",
-					gap: "20px",
-					alignItems: "center",
-				}}
-			>
+			<div className="flex flex-col justify-center items-center gap-5">
 				<img src={eyeIcon} width={"117"}></img>
-				<h1 className=" font-bold text-white">צפיות</h1>
-			</Typography>
+				<h1 className=" font-bold text-white text-2xl">צפיות</h1>
+			</div>
 		</div>
 	);
 }
