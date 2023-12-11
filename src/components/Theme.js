@@ -61,8 +61,8 @@ export default function Theme({
   };
 
   return (
-    <div className="bg-[#141533]  w-screen flex justify-center">
-      <div className=" w-[90%]">
+    <div className="bg-[#141533] h-screen w-screen flex justify-center">
+      <div className=" w-[90%] flex flex-col justify-center items-center">
         {/* <Drawer variant="permanent" open={open}>
 					<Toolbar
 						sx={{
@@ -84,7 +84,7 @@ export default function Theme({
 						{secondaryListItems}
 					</List>
 				</Drawer> */}
-        <div className=" w-full flex-col justify-center items-center ">
+        <div className=" w-full  flex-col justify-center items-center ">
           <div className="flex w-full justify-between items-center flex-row-reverse ">
             <div className="flex justify-center items-center flex-row-reverse gap-5 pb-2">
               <h2 className="text-white text-6xl font-black mt-4  font-Heebo ">
