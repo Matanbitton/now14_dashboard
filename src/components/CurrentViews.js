@@ -27,7 +27,7 @@ export default function Summary({ summary }) {
         gridTemplateColumns: "1fr 1fr",
         justifyContent: "center",
         alignItems: "center",
-        height: "100vh",
+        height: "100%",
       }}
     >
       <div className="flex flex-col justify-center items-center gap-7 ">
