@@ -102,7 +102,7 @@ export default function Theme({
               style={{
                 display: "grid",
                 gridTemplateColumns: "0.4fr 0.4fr 0.8fr",
-                gridTemplateRows: "0.1fr 207px 138px 0.5fr 1fr",
+                gridTemplateRows: "auto",
                 columnGap: "10px",
                 rowGap: "10px",
               }}
@@ -130,7 +130,7 @@ export default function Theme({
               </div>
               <div
                 style={{
-                  gridArea: "1 / 3 / 3 / 4",
+                  gridArea: "1 / 3 / 5 / 6",
                 }}
               >
                 <Paper
@@ -187,27 +187,12 @@ export default function Theme({
                   </Paper>
                 </div>
               </div>
-              <div style={{ gridArea: "4 / 1 / 4 / 2 " }}>
-                <div>
-                  <Paper
-                    sx={{
-                      backgroundColor: "rgba(255, 255, 255, 0.18)",
-
-                      p: 1,
-                      display: "flex",
-                      flexDirection: "column",
-                      borderRadius: "7px",
-                    }}
-                  >
-                    <Comments comments={comments} authors={authors} />
-                  </Paper>
-                </div>
-              </div>
+              <div style={{ gridArea: "4 / 1 / 4 / 2 " }}></div>
               <div
                 style={{
                   display: "flex",
                   flexDirection: "column",
-                  gap: "20px",
+                  gap: "10px",
                   gridArea: "2 / 1 / 2 / 2",
                 }}
               >
@@ -229,50 +214,64 @@ export default function Theme({
                     />
                   </Paper>
                 </div>
-              </div>
-              <div
-                className="w-full"
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  gap: "10px",
-                  gridArea: "3 / 1 / 3 / 2",
-                }}
-              >
-                <div className="w-full">
-                  <Paper
-                    sx={{
-                      bgcolor: "rgba(255, 255, 255, 0.18)",
-                      p: 2,
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "center",
-                      borderRadius: "7px",
-                      height: " 138px",
-                    }}
-                  >
-                    <MostPublishedPersonMonth
-                      mostActiveAuthors={mostActiveAuthors}
-                      authors={authors}
-                    />
-                  </Paper>
+                <div
+                  className="w-full"
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    gap: "10px",
+                    gridArea: "3 / 1 / 3 / 2",
+                  }}
+                >
+                  <div className="w-full">
+                    <Paper
+                      sx={{
+                        bgcolor: "rgba(255, 255, 255, 0.18)",
+                        p: 2,
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        borderRadius: "7px",
+                        height: " 138px",
+                      }}
+                    >
+                      <MostPublishedPersonMonth
+                        mostActiveAuthors={mostActiveAuthors}
+                        authors={authors}
+                      />
+                    </Paper>
+                  </div>
+                  <div className="w-full">
+                    <Paper
+                      sx={{
+                        bgcolor: "rgba(255, 255, 255, 0.18)",
+                        p: 2,
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        borderRadius: "7px",
+                        height: " 138px",
+                      }}
+                    >
+                      <MostPublishedPersonWeek
+                        mostActiveAuthors={mostActiveAuthors}
+                        authors={authors}
+                      />
+                    </Paper>
+                  </div>
                 </div>
-                <div className="w-full">
+                <div>
                   <Paper
                     sx={{
-                      bgcolor: "rgba(255, 255, 255, 0.18)",
-                      p: 2,
+                      backgroundColor: "rgba(255, 255, 255, 0.18)",
+
+                      p: 1,
                       display: "flex",
                       flexDirection: "column",
-                      alignItems: "center",
                       borderRadius: "7px",
-                      height: " 138px",
                     }}
                   >
-                    <MostPublishedPersonWeek
-                      mostActiveAuthors={mostActiveAuthors}
-                      authors={authors}
-                    />
+                    <Comments comments={comments} authors={authors} />
                   </Paper>
                 </div>
               </div>
