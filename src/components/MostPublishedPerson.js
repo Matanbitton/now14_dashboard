@@ -36,14 +36,14 @@ export default function MostPublishedPerson({ authorsData, authors }) {
       </div>
       <div>
         <div>
-          <h2 className="text-2xl  text-white font-black">
+          <h2 className="text-xl  text-white font-black">
             {authors.map((author) =>
               displayData.author_id == author.id ? author.display_name : ""
             )}
           </h2>
         </div>
 
-        <h2 className="text-xl  text-white font-black">
+        <h2 className="text-lg  text-white font-black">
           !פרסם הכי הרבה <span className="text-[#FBBF00]">היום</span>
         </h2>
       </div>

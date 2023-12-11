@@ -37,7 +37,7 @@ export default function MostPublishedPersonWeek({
           </h2>
         </div>
 
-        <h2 className="text-lg  text-white font-black">
+        <h2 className="text-bast  text-white font-black">
           פרסם הכי הרבה
           <span className="text-[#FBBF00] pr-1">השבוע</span>
         </h2>

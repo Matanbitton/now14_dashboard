@@ -31,7 +31,7 @@ export default function Summary({ summary }) {
       }}
     >
       <div className="flex flex-col justify-center items-center gap-7 ">
-        <h2 className="text-[#00D3E0] font-sans font-black text-6xl">
+        <h2 className="text-[#00D3E0] font-sans font-black text-5xl">
           {views}
         </h2>
         <h2 className="font-bold text-white text-lg mb-[-15px]">
@@ -40,7 +40,7 @@ export default function Summary({ summary }) {
       </div>
       <div className="flex flex-col justify-center items-center gap-5">
         <img src={eyeIcon} width={"117"}></img>
-        <h1 className=" font-bold text-white text-2xl">צפיות</h1>
+        <h1 className=" font-bold text-white text-2xl pt-2">צפיות</h1>
       </div>
     </div>
   );

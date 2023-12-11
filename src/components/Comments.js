@@ -7,9 +7,9 @@ export default function Comments({ comments, authors }) {
 
   return (
     <div className="h-full comments-container">
-      <div className="flex flex-row-reverse gap-1 mb-2 p-2 ">
-        <h2 className="text-2xl text-white font-black">תגובות רבותי</h2>
-        <h2 className="text-[#FBBF00] text-2xl font-black">!תגובות</h2>
+      <div className="flex flex-row-reverse gap-1 mb-2  ">
+        <h2 className="text-xl text-white font-black">תגובות רבותי</h2>
+        <h2 className="text-[#FBBF00] text-xl font-black">!תגובות</h2>
       </div>
 
       <div
@@ -24,9 +24,9 @@ export default function Comments({ comments, authors }) {
           style={{ backgroundColor: "rgba(255, 255, 255, 0.18)" }}
         >
           <div className="mb-2 rounded-xl flex h-4">
-            <div className="text-xl comments-header-cell flex-1">תגובות</div>
-            <div className="text-xl comments-header-cell flex-1">כותרת</div>
-            <div className=" text-xl comments-header-cell flex-1">כתב</div>
+            <div className="text-base comments-header-cell flex-1">תגובות</div>
+            <div className="text-base comments-header-cell flex-1">כותרת</div>
+            <div className=" text-base comments-header-cell flex-1">כתב</div>
           </div>
         </div>
 
@@ -43,15 +43,12 @@ export default function Comments({ comments, authors }) {
               }
             >
               <div>
-                <p className="text-base">{row.comments}</p>
+                <p className="text-sm">{row.comments}</p>
               </div>
-              <div
-                className="text-base font-thin"
-                style={{ textAlign: "right" }}
-              >
+              <div className="text-sm font-thin" style={{ textAlign: "right" }}>
                 {row.title}
               </div>
-              <div className="text-base " style={{ textAlign: "right" }}>
+              <div className="text-sm " style={{ textAlign: "right" }}>
                 {authors.map((author) =>
                   row.author_id == author.id ? author.display_name : ""
                 )}

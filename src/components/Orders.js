@@ -106,7 +106,7 @@ export default function Orders({ dataAuthors, authors }) {
                     sx={{
                       color: getRandomColor(),
                       fontWeight: "bold",
-                      fontSize: "22px",
+                      fontSize: "16px",
                       padding: "none",
                       borderColor: "rgba(255, 255, 255, 0.2)",
                       fontWeight: "700",
@@ -118,7 +118,7 @@ export default function Orders({ dataAuthors, authors }) {
                   <TableCell
                     sx={{
                       color: "white",
-                      fontSize: "18px",
+                      fontSize: "14px",
                       padding: "none",
                       borderColor: "rgba(255, 255, 255, 0.2)",
                       fontWeight: "500",
@@ -130,7 +130,7 @@ export default function Orders({ dataAuthors, authors }) {
                   <TableCell
                     sx={{
                       color: "white",
-                      fontSize: "21px",
+                      fontSize: "16px",
                       padding: "none",
                       borderColor: "rgba(255, 255, 255, 0.2)",
                       fontWeight: "200",

@@ -61,8 +61,8 @@ export default function Theme({
   };
 
   return (
-    <div className="bg-[#141533] h-screen w-screen flex justify-center">
-      <div className=" w-[90%] flex flex-col justify-center items-center">
+    <div className="bg-[#141533] w-screen flex justify-center">
+      <div className=" w-[90%]  flex flex-col justify-center items-center">
         {/* <Drawer variant="permanent" open={open}>
 					<Toolbar
 						sx={{
@@ -130,7 +130,7 @@ export default function Theme({
               </div>
               <div
                 style={{
-                  gridArea: "1 / 3 / 5 / 6",
+                  gridArea: "1 / 3 / 4 / 6",
                 }}
               >
                 <Paper
