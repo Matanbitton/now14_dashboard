@@ -54,7 +54,6 @@ export default function Theme({
 	comments,
 	mostActiveAuthors,
 }) {
-	console.log(authorsDataSummary);
 	const [open, setOpen] = React.useState(true);
 	const toggleDrawer = () => {
 		setOpen(!open);
@@ -63,27 +62,6 @@ export default function Theme({
 	return (
 		<div className="bg-[#141533]  w-screen flex justify-center">
 			<div className=" w-[90%]">
-				{/* <Drawer variant="permanent" open={open}>
-					<Toolbar
-						sx={{
-							display: "flex",
-							alignItems: "center",
-							justifyContent: "flex-end",
-							px: [1],
-							marginTop: "30px",
-						}}
-					>
-						<IconButton onClick={toggleDrawer}>
-							<ChevronLeftIcon />
-						</IconButton>
-					</Toolbar>
-					<Divider />
-					<List component="nav">
-						{mainListItems}
-						<Divider sx={{ my: 1 }} />
-						{secondaryListItems}
-					</List>
-				</Drawer> */}
 				<div className=" w-full flex-col justify-center items-center ">
 					<div className="flex w-full justify-between items-center flex-row-reverse ">
 						<div className="flex justify-center items-center flex-row-reverse gap-5 pb-2">

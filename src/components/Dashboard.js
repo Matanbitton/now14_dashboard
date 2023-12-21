@@ -59,12 +59,11 @@ export default function Dashboard() {
 
 		fetchData();
 
-		const intervalId = setInterval(fetchData, 15000); 
-	
+		const intervalId = setInterval(fetchData, 15000);
+
 		const pageReload = setInterval(() => {
 			window.location.reload();
-		}, 3600000);
-
+		}, 1200000);
 
 		return () => {
 			clearInterval(intervalId);
