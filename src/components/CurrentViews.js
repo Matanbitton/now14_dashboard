@@ -7,41 +7,41 @@ import { Image } from "@mui/icons-material";
 import eyeIcon from "../Images/eyeIcon.svg";
 
 function preventDefault(event) {
-	event.preventDefault();
+  event.preventDefault();
 }
 
 export default function Summary({ summary }) {
-	const { views, articles, pushNotifications } = summary;
-	const today = new Date();
+  const { views, articles, pushNotifications } = summary;
+  const today = new Date();
 
-	// Extract the date, month, and year from the Date object
-	const day = today.getDate();
-	const month = today.getMonth() + 1; // Month is 0-based, so add 1
-	const year = today.getFullYear();
+  // Extract the date, month, and year from the Date object
+  const day = today.getDate();
+  const month = today.getMonth() + 1; // Month is 0-based, so add 1
+  const year = today.getFullYear();
 
-	const formattedDate = `${day}/${month}/${year}`;
-	return (
-		<div
-			style={{
-				display: "grid",
-				gridTemplateColumns: "1fr 1fr",
-				justifyContent: "center",
-				alignItems: "center",
-				height: "100vh",
-			}}
-		>
-			<div className="flex flex-col justify-center items-center gap-7 ">
-				<h2 className="text-[#00D3E0] font-sans font-black text-4xl">
-					{views}
-				</h2>
-				<h2 className="font-bold text-white text-lg mb-[-15px]">
-					{formattedDate}
-				</h2>
-			</div>
-			<div className="flex flex-col justify-center items-center gap-5">
-				<img src={eyeIcon} width={"117"}></img>
-				<h1 className=" font-bold text-white text-2xl">צפיות</h1>
-			</div>
-		</div>
-	);
+  const formattedDate = `${day}/${month}/${year}`;
+  return (
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "1fr 1fr",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100%",
+      }}
+    >
+      <div className="flex flex-col justify-center items-center gap-7 ">
+        <h2 className="text-[#00D3E0] font-sans font-black text-5xl">
+          {views}
+        </h2>
+        <h2 className="font-bold text-white text-lg mb-[-15px]">
+          {formattedDate}
+        </h2>
+      </div>
+      <div className="flex flex-col justify-center items-center gap-5">
+        <img src={eyeIcon} width={"117"}></img>
+        <h1 className=" font-bold text-white text-2xl pt-2">צפיות</h1>
+      </div>
+    </div>
+  );
 }
