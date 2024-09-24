@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 import Title from "./Title";
 
 export default function ProgressBar({ summary, style }) {
-  summary.goal = 120;
+  summary.target = 120;
   const [currentCount, goal] = [summary.articles || 1, summary.target || 1];
   const percentage = (currentCount / goal) * 100;
 
